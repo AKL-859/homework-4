@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,600&display=swap");
+@font-face {
+  font-family: "archiaregular";
+  src: url("./fonts/archia-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "archiaregular";
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+h1 {
+  /* font-size: 24px !important;
+  font-weight: 900; */
+
+  font-size: min(3.75vw, 22px) !important;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 18px !important;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 14px !important;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 13px !important;
+  font-weight: 900;
+}
+
+h5 {
+  font-size: 12px !important;
+  font-weight: 900;
+}
+
+h6 {
+  font-size: 11px !important;
+  font-weight: 600;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  /* background: hsl(230, 29%, 19%); */
+  /* color: hsl(184, 30%, 70%); */
+}
+/* cap the width of the visualization */
+svg {
+  /* width: 90vw;
+  max-width: 900px; */
+}
+svg text {
+  font-family: "IBM Plex Mono", monospace;
+  fill: currentColor;
+  text-shadow: 0 0 1px hsla(0, 0%, 0%, 0.25);
+  letter-spacing: 0.01rem;
+}
+
+/* animation for the path elements included through the tooltip
+! the offset needs to match the length of a dash and an empty space to avoid jumping from state to state
+stroke-dasharray: 7 4; --> stroke-dashoffset: 11;
+*/
+@keyframes dashOffset {
+  to {
+    stroke-dashoffset: -11;
+  }
+}
+
+.toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  background-color: lightgray;
+  border: none;
+  border-radius: 2.5px;
+  cursor: pointer;
+}
+
+.label_container {
+  width: 100%;
+  border: 3px solid green;
+}
+
+.label_container > .section1 {
+  width: 50%;
+  background-color: aqua;
+}
+
+#my_dataviz {
+  display: flex;
+  flex-direction: column;
+}
+
+.mapSelection {
+  width: 100%;
+  display: flex;
+  /* background-color: green; */
+  height: 224px;
+}
+
+.toggleBox {
+  text-align: center;
+  padding: 12px 6px;
+  /* width: 33.33%; */
+  width: 25%;
+  margin: 4px 2px;
+  /* background-color: navajowhite; */
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#heatMaps {
+  /* padding-left: 35%; */
+  /* background-color: #ff073a; */
+}
+#pieCharts {
+  /* padding-left: 35%; */
+  /* background-color: #28a745; */
+}
+
+#bySeasonSVG {
+  margin-left: 25%;
+}
+
+.is-classA > * {
+  color: #007bff;
+}
+
+.is-classA:hover {
+  background: rgba(0, 123, 255, 0.125);
+}
+
+.is-classB > * {
+  color: #ff073a;
+}
+
+.is-classB:hover {
+  background: rgba(255, 7, 58, 0.125);
+  transition: 0.15s ease-in-out;
+}
+
+.is-classC > * {
+  color: #28a745;
+}
+
+.is-classC:hover {
+  background: rgba(40, 167, 69, 0.125);
+}
+
+.is-classD > * {
+  color: #6c757d;
+}
+
+#is-classD,
+.is-classD:hover {
+  background: rgba(108, 117, 125, 0.125);
+}
+
+.circleLabel {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.circleLabel + .is-classA {
+  background-color: red;
+}
+
+.subHeading {
+  color: #6c757d;
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+}
+
+/* Animation code */
+.fadeInUp {
+  animation-duration: 0.45s;
+  animation-fill-mode: both;
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  animation-duration: 0.45s;
+  animation-fill-mode: both;
+  animation-name: fadeInDown;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.rotateDownRight {
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+  animation-name: rotateDownRight;
+}
+
+@keyframes rotateDownRight {
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+.rotateRightDown {
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+  animation-name: rotateRightDown;
+}
+
+@keyframes rotateRightDown {
+  0% {
+    transform: rotate(-90deg);
+  }
+}
+
+.fadeOutDown {
+  animation-duration: 0.45s;
+  animation-fill-mode: both;
+  animation-name: fadeOutDown;
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+}
+
+thead {
+  animation-delay: 1000ms;
+}
+
+thead > tr > td {
+  /* background-color: #28a745; */
+  border-radius: 3px;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem;
+}
+
+thead > tr:nth-child(2n + 1) > td {
+  background: rgba(108, 117, 125, 0.06274509803921569);
+}
+
+thead > tr:hover > td {
+  background: #edeeef;
+}
